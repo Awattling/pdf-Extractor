@@ -1,0 +1,25 @@
+
+/**
+ * @author Austin Wattling
+ *
+ */
+import java.io.IOException; 
+import org.apache.pdfbox.pdmodel.PDDocument;
+
+public class Extractor {
+
+    
+   public static void main (String args[]) throws IOException {
+       
+      //Creating PDF document object 
+      PDDocument document = new PDDocument();    
+       
+      //Saving the document
+      document.save("newDoc.pdf");
+         
+      System.out.println("PDF created");  
+    
+      //Closing the document  
+      document.close();
+   }
+}

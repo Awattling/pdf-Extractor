@@ -1,0 +1,30 @@
+
+/**
+ * @author Austin Wattling
+ *
+ */
+
+import com.asprise.util.pdf.PDFReader;
+import com.asprise.util.ocr.OCR;
+
+public class Extractor {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Hello World");
+		
+		PDFReader reader = new PDFReader(new File("my.pdf"));
+		reader.open(); // open the file. 
+		int pages = reader.getNumberOfPages();
+		 
+		for(int i=0; i < pages; i++) {
+		   BufferedImage img = reader.getPageAsImage(i);
+		   
+		   // recognizes both characters and barcodes
+		   String text = new OCR().recognizeAll(image);
+		   System.out.println("Page " + i + ": " + text); 
+		}
+
+	}
+
+}
